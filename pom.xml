@@ -27,10 +27,22 @@
   </properties>
 
   <dependencies>
+    <!-- pulls in all dependencies related to web development like Spring MVC, REST and Tomcat as a default embedded server -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
+    <!-- If spring-security jars are added in classpath
+    1) all http endpoints will be secured by default security configuration class SecurityAutoConfiguration.
+    2) to override default username and password, specify username and password in application.yml file
+    3) by default login page is also configured
+    This causes a browser pop-up to ask for credentials
+     -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>

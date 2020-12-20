@@ -1,0 +1,11 @@
+spring:
+  security:
+    user:
+      name: demo
+      password: demo
+
+# disable Whitelabel Error Page
+server:
+  error:
+    whitelabel:
+      enabled: false
