@@ -43,6 +43,20 @@
       <artifactId>spring-boot-starter-security</artifactId>
     </dependency>
 
+<!--  h2 database starts; if scope is runtime then it will create in-memory db,
+      and for file-based storage remove scope as runtime and add jdbc starter dependency -->
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+<!--      <scope>runtime</scope>-->
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jdbc</artifactId>
+    </dependency>
+<!-- h2 database ends-->
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
