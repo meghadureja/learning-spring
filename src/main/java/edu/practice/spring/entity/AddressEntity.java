@@ -11,6 +11,7 @@ import javax.persistence.*;
 public class AddressEntity extends BaseEntity {
     @Id
     @Column(name = TableConstants.ADDRESS_ID)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private String addressLine1;
     private String addressLine2;

@@ -11,6 +11,7 @@ import javax.persistence.*;
 public class PhoneNumberEntity extends BaseEntity {
     @Id
     @Column(name = TableConstants.PHONE_NUMBER_ID)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private String type;
     private String number;

@@ -14,6 +14,7 @@ import java.util.List;
 public class ContactEntity extends BaseEntity {
     @Id
     @Column(name = TableConstants.CONTACT_ID)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     @Size(min = 5, max = 200)
     private String firstName;
