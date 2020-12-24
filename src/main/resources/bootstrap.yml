@@ -1,0 +1,14 @@
+# bootstrap.yml only used/needed if you're using Spring Cloud and your application's configuration
+# is stored on a remote configuration server (e.g. Spring Cloud Config Server)
+
+# bootstrap.yml is loaded by a parent Spring ApplicationContext
+# bootstrap.yml is loaded before the application.yml
+
+spring:
+  application:
+    name: learning-spring
+  profiles:
+    active: h2
+#  cloud:
+#    config:
+#      uri:
