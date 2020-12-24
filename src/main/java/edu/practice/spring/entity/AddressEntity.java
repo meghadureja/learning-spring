@@ -1,13 +1,9 @@
 package edu.practice.spring.entity;
 
 import edu.practice.spring.constants.TableConstants;
-import lombok.Builder;
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -24,4 +20,7 @@ public class AddressEntity extends BaseEntity {
     private String zipCode;
     private String postalCode;
     private String countryCode;
+    @OneToOne
+    @JoinColumn(name="contact_id")
+    private ContactEntity contact; //A1->C1, A2->C2
 }
