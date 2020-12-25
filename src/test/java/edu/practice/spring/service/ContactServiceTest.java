@@ -32,7 +32,7 @@ public class ContactServiceTest {
     }
 
     @Test
-    public void should_update_contact(){
+    public void should_update_contact() throws ContactException {
         ContactEntity entity = new ContactEntity();
         ContactEntity savedContact = new ContactEntity();
         savedContact.setId(1L);

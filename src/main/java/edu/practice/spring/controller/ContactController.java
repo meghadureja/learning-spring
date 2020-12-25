@@ -25,8 +25,13 @@ public class ContactController {
         ContactDTO dto = new ContactDTO();
         dto.setId(id);
         ContactDTO contactDTO = contactService.getContact(dto);
-        return new ResponseEntity<>(contactDTO, HttpStatus.CREATED);
+        return new ResponseEntity<>(contactDTO, HttpStatus.OK);
     }
 
+    @PutMapping("/contacts/{id}")
+    public ResponseEntity<ContactDTO> updateContact(@PathVariable("id") Long id, @RequestBody ContactDTO dto) throws ContactException {
+        ContactDTO contactDTO = contactService.updateContact(dto);
+        return new ResponseEntity<>(contactDTO, HttpStatus.OK);
+    }
 
 }

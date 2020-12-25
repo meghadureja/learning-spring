@@ -24,12 +24,16 @@ public class ContactService {
         return dto;
     }
 
-    public ContactDTO updateContact(ContactDTO dto) {
-        //mapper
-        ContactEntity contact = new ContactEntity();
-        ContactEntity savedContact = contactRepository.save(contact);
-        dto.setId(savedContact.getId());
-        return dto;
+    public ContactDTO updateContact(ContactDTO dto) throws ContactException {
+        Optional<ContactEntity> contactEntity = contactRepository.findById(dto.getId());
+        if(contactEntity.isPresent()){
+            ContactEntity contact = contactEntity.get();
+            //mapper
+            ContactEntity savedContact = contactRepository.save(contact);
+            dto.setId(savedContact.getId());
+            return dto;
+        }
+        throw new ContactException(ApplicationConstants.CONTACT_NOT_FOUND);
     }
 
     public ContactDTO getContact(ContactDTO dto) throws ContactException {
