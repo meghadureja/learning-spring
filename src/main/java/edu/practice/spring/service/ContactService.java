@@ -1,7 +1,9 @@
 package edu.practice.spring.service;
 
+import edu.practice.spring.constants.ApplicationConstants;
 import edu.practice.spring.domain.ContactDTO;
 import edu.practice.spring.entity.ContactEntity;
+import edu.practice.spring.exception.ContactException;
 import edu.practice.spring.repository.ContactRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -30,7 +32,7 @@ public class ContactService {
         return dto;
     }
 
-    public ContactDTO getContact(ContactDTO dto) {
+    public ContactDTO getContact(ContactDTO dto) throws ContactException {
         Optional<ContactEntity> contactEntity = contactRepository.findById(dto.getId());
         if(contactEntity.isPresent()){
             ContactEntity contact = contactEntity.get();
@@ -38,7 +40,7 @@ public class ContactService {
             dto.setId(contact.getId());
             return dto;
         }
-        return null;
+        throw new ContactException(ApplicationConstants.CONTACT_NOT_FOUND);
     }
 
     public void deleteContact(ContactDTO dto) {

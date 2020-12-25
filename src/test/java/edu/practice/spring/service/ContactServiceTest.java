@@ -2,6 +2,7 @@ package edu.practice.spring.service;
 
 import edu.practice.spring.domain.ContactDTO;
 import edu.practice.spring.entity.ContactEntity;
+import edu.practice.spring.exception.ContactException;
 import edu.practice.spring.repository.ContactRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -53,7 +54,7 @@ public class ContactServiceTest {
     }
 
     @Test
-    public void should_throw_null_when_contact_is_not_present(){
+    public void should_throw_null_when_contact_is_not_present() throws ContactException {
         Optional<ContactEntity> contact = Optional.empty();
         ContactDTO dto = new ContactDTO();
         dto.setId(2L);
